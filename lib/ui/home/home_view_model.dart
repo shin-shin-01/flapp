@@ -1,3 +1,5 @@
+import 'package:flapp/data/repository/xxx/xxx_repository.dart';
+import 'package:flapp/data/repository/xxx/xxx_repository_impl.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'home_state.dart';
@@ -15,11 +17,18 @@ class HomeViewModel extends StateNotifier<AsyncValue<HomeState>> {
     load();
   }
 
+  late final XXXRepository xxxRepository = _ref.read(xxxRepositoryProvider);
+
   // 初期化
-  void load() {
-    state = const AsyncValue.data(
-      HomeState(count: 0),
-    );
+  Future<void> load() async {
+    final result = await xxxRepository.fetch();
+    result.when(success: (data) {
+      state = AsyncValue.data(
+        HomeState(count: data),
+      );
+    }, failure: (error) {
+      state = AsyncValue.error(error);
+    });
   }
 
   // カウントを+1
