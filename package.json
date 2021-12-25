@@ -5,6 +5,8 @@
   "author": "Kaze Shindo <kaze.bknb@outlook.jp>",
   "license": "MIT",
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.4",
     "prettier": "^2.5.1"
   }
 }
