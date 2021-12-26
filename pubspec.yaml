@@ -41,6 +41,8 @@ dependencies:
   freezed_annotation: ^1.1.0
   google_fonts: ^2.1.1
   sizer: ^2.0.15
+  enum_to_string: ^2.0.1
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
